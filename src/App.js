@@ -107,11 +107,13 @@ class App extends Component{
                 noValidate 
                 onChange = {this.handleChange} 
                 />
-                {formErrors.verNum.length > 0 && (
+                {formErrors.verNum.length > 0 ?
                   <span className = "errorMessage" >{formErrors.verNum}</span>
-                )}
-                { status ? <span className = "successMessage"> {firstName} registered this number on {regDate} at {branch} </span>
-                : <span className = "errorMessage" > could not find BVN! please try again. </span> }
+                :[
+                  (status ? <span className = "successMessage"> {firstName} registered this number on {regDate} at {branch} </span>
+                  : <span className = "errorMessage" > could not find BVN! please try again. </span> )
+                ]}
+                
                 
 
             <div className = "submit-group" >
